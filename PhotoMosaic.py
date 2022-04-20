@@ -98,6 +98,7 @@ def create_mosaic(
 
         # Opening the files
         with PIL.Image.open(path_name) as image:
+            image = image.convert("RGBA")
 
             # Getting info
             sq_image = square_crop(image, resolution, resize_mode)
@@ -180,7 +181,7 @@ def create_mosaic_image(
 
             # Initializing some variables
             lowest_value = 1_000_000_000
-            best_image:PIL.Image.Image = None
+            best_image:PIL.Image.Image = PIL.Image.new("RGB", (resolution, resolution), 255)
 
             # Going through all the info from the sample images
             for sample_img in sample_images_info:
@@ -192,7 +193,7 @@ def create_mosaic_image(
                         # * CIELAB: More realistic, but slower *
                         r,g,b,*_ = av_color
                         av_color_lab = convert_color(sRGBColor(r, g, b, True), LabColor)
-                        sample_lab = convert_color(sRGBColor(*sample_img.color, True), LabColor)
+                        sample_lab = convert_color(sRGBColor(*[*sample_img.color][0:3], True), LabColor)
                         result = delta_e_cie2000(sample_lab, av_color_lab)
 
                     except NameError:
@@ -206,7 +207,7 @@ def create_mosaic_image(
                 else:
 
                     # Initializing some variables
-                    r,g,b = sample_img.color
+                    r,g,b,_ = sample_img.color
                     ar,ag,ab,*_ = av_color
 
                     if color_mode == "RGB":
@@ -263,7 +264,7 @@ class ImageInfo:
 
         self.image:PIL.Image.Image = image
         self.color:tuple = color
-
+        self.path:str = path
 
     def __repr__(self) -> str:
 
