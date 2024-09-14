@@ -348,7 +348,7 @@ if __name__ == "__main__":
     print("Starting...\n")
 
     # Getting the parser
-    parser = argparse.ArgumentParser("ImageMosaic", description="Use to create beautiful mosaic with your images")
+    parser = argparse.ArgumentParser("PhotoMosaic", description="Use to create beautiful mosaic with your images")
 
     # Adding the arguments
     parser.add_argument("main_path", metavar="Image Path", type=str,

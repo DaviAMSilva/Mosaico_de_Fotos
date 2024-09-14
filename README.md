@@ -2,7 +2,7 @@
 Programa para criar um mosaico de fotos a partir de várias imagens.
 
 ```console
-usage: ImageMosaic [-h] [-p PATH] [-n NAME] [-r]
+usage: PhotoMosaic [-h] [-p PATH] [-n NAME] [-r]
                    [-c {RGB,SIMPLIFIED,CIELAB}]
                    [-s {BICUBIC,NEAREST,BOX,BILINEAR,HAMMING,LANCZOS}]
                    [-f FORMAT [FORMAT ...]]
