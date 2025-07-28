@@ -1,5 +1,17 @@
 """Module to make photo mosaics - By: DaviAMSilva"""
 
+
+
+# Correção necessária em numpy, por algum motivo
+import numpy
+
+def patch_asscalar(a):
+    return a.item()
+
+setattr(numpy, "asscalar", patch_asscalar)
+
+
+
 import argparse
 import PIL.Image
 from glob import glob

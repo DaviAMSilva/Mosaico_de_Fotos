@@ -1,5 +1,12 @@
 # Mosaico de Fotos
-Programa para criar um mosaico de fotos a partir de várias imagens.
+
+Programa para criar um mosaico de fotos de uma imagem principal a partir de várias imagens fontes.
+
+Exemplo de uso utilizando blocos de Minecraft na pintura **Abaporu** da pintora **Tarsila do Amaral**:
+
+![Abaporu original comparada com a versão criada usando blocos de Minecraft](abaporu.png)
+
+## Comando
 
 ```console
 usage: PhotoMosaic [-h] [-p PATH] [-n NAME] [-r]
